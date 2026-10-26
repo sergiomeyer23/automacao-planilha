@@ -1,6 +1,6 @@
 # Automação de Relatório de Vendas
 
-[![CI](https://github.com/sergiomeyer23/automaticao-planilha/actions/workflows/ci.yml/badge.svg)](https://github.com/sergiomeyer23/automaticao-planilha/actions/workflows/ci.yml)
+[![CI](https://github.com/sergiomeyer23/automacao-planilha/actions/workflows/ci.yml/badge.svg)](https://github.com/sergiomeyer23/automacao-planilha/actions/workflows/ci.yml)
 
 Aplicação Java de linha de comando que lê uma planilha de vendas (`.xlsx`) e gera um relatório consolidado **por mês** em um novo arquivo Excel, com indicadores de desempenho por categoria e por produto.
 
