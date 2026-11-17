@@ -25,6 +25,8 @@ SYSDATE = sys.argv[3] if len(sys.argv) > 3 else "2026-11-17 10:30:00"
 TRAVA = threading.Lock()
 CON = sh.criar_banco({"tabelas": FIXTURE["tabelas"]})
 PERIODO = FIXTURE.get("periodo", {"INI": "", "FIN": "", "CODEMP": ""})
+# Falha forçada para testar a classificação de erro: "trecho do SQL|mensagem"
+FORCAR = os.environ.get("ERRO_SE_CONTEM", "")
 
 STUB = """<script>
 window.__consultas = [];
@@ -81,6 +83,8 @@ class H(BaseHTTPRequestHandler):
         n = int(self.headers.get("Content-Length", "0"))
         req = json.loads(self.rfile.read(n))
         time.sleep(random.uniform(0.02, 0.35))  # embaralha a ordem das respostas
+        if FORCAR and FORCAR.split("|")[0] in req["sql"]:
+            return self._resp(500, FORCAR.split("|", 1)[1], "text/plain; charset=utf-8")
         try:
             with TRAVA:
                 linhas = sh.executar(CON, req["sql"], req["params"], SYSDATE)

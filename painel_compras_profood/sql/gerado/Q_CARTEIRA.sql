@@ -1,4 +1,4 @@
--- GERADO por scripts/build.js (10db84899dd53b95). NÃO EDITAR: altere sql/consultas, sql/fragmentos ou sql/macros.sql.
+-- GERADO por scripts/build.js (e413c22035786330). NÃO EDITAR: altere sql/consultas, sql/fragmentos ou sql/macros.sql.
 -- Consulta: Q_CARTEIRA
 -- Indicadores agregados da carteira de OC em blocos (uma linha por bloco+chave). N_AUX: ABERTO = itens com unidade não conciliada; PONTUALIDADE/VINCULO/QUALIDADE = 0.
 -- Binds na ordem dos '?': CODEMP:I, DT_INI:S, DT_FIM:S, TOLERANCIA_ATRASO_DIAS:I, OC_ANTIGA_MESES:I

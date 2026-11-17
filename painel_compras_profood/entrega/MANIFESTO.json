@@ -1,10 +1,10 @@
 {
   "versao": "2.0.0-nao-homologado",
-  "hash": "10db84899dd53b95",
+  "hash": "e413c22035786330",
   "arquivo": "entrega/bi_oc_sankhya.jsp",
   "tamanhoKB": 274.8,
   "avisoTamanho": null,
-  "sha256": "a53c442b760a7f77f6c7c7bde8cb1a44d981815d8b179f19057bcb53d8869626",
+  "sha256": "053d08ddfba5d5f6fd960b397870719222790f7ab4843ff3f4436ba9167f2fda",
   "consultas": [
     {
       "id": "Q_CARTEIRA",
@@ -39,14 +39,14 @@
     {
       "id": "Q_PLANO",
       "parametros": 25,
-      "caracteres": 32693,
-      "sha256": "d3a8b8e2d1a98e00"
+      "caracteres": 32707,
+      "sha256": "fefe798dbd7ecb67"
     },
     {
       "id": "Q_RESUMO",
       "parametros": 23,
-      "caracteres": 31182,
-      "sha256": "fde1b2a167f1b300"
+      "caracteres": 31196,
+      "sha256": "8193da8034508b3d"
     },
     {
       "id": "Q_SNAP_PROBE",

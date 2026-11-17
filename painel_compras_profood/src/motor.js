@@ -432,7 +432,7 @@ var Motor = (function (Calc) {
         : (b.FL_SEM_GIRO === 1 && b.QTD_ESTOQUE > 0) ? "P0_SEM_GIRO" : "OK";
       var m = "";
       if (b.QTD_ESTOQUE < 0) m += "ESTOQUE_NEGATIVO;";
-      if (b.DISPONIVEL < 0) m += "COMPROMISSO_MAIOR_QUE_ESTOQUE;";
+      if (b.CMP > 0 && b.DISPONIVEL < 0) m += "COMPROMISSO_MAIOR_QUE_ESTOQUE;";
       if (b.COB_FISICA_DIAS === 0 && b.QTD_ESTOQUE >= 0 && b.DISPONIVEL >= 0) m += "SEM_COBERTURA_FISICA;";
       if (b.FL_FALTA_ANTES_RECEB === 1) m += "FALTA_ANTES_RECEBIMENTO;";
       if (dentroLT) m += "FALTA_DENTRO_LEAD_TIME;";

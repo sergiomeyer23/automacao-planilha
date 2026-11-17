@@ -16,22 +16,25 @@ function python() {
   return null;
 }
 
-let cacheConsultas = null;
-function consultas() {
-  if (!cacheConsultas) {
+const cache = {};
+/* ajustePainel: função que altera uma CÓPIA de config/painel.json (ex.: mapear TOP de cotação só no teste) */
+function consultas(ajustePainel, nome) {
+  const k = nome || "padrao";
+  if (!cache[k]) {
     const conf = build.carregarConfig();
+    if (ajustePainel) ajustePainel(conf.painel);
     const c = build.montarConsultas(conf, build.carregarMacros());
-    cacheConsultas = {};
-    for (const id of Object.keys(c)) cacheConsultas[id] = { sql: c[id].sql, params: c[id].params, tipos: c[id].tipos };
+    cache[k] = {};
+    for (const id of Object.keys(c)) cache[k][id] = { sql: c[id].sql, params: c[id].params, tipos: c[id].tipos };
   }
-  return cacheConsultas;
+  return cache[k];
 }
 
-function rodar(tabelas, casos) {
+function rodar(tabelas, casos, consultasUsadas) {
   const py = python();
   if (!py) return null;
   const r = spawnSync(py, [path.join(RAIZ, "tests", "sql", "executar_sql.py")], {
-    input: JSON.stringify({ consultas: consultas(), tabelas, casos }), encoding: "utf8", maxBuffer: 256 * 1024 * 1024
+    input: JSON.stringify({ consultas: consultasUsadas || consultas(), tabelas, casos }), encoding: "utf8", maxBuffer: 256 * 1024 * 1024
   });
   if (r.status !== 0) throw new Error("Falha ao executar SQL no DuckDB: " + r.stderr);
   return JSON.parse(r.stdout);

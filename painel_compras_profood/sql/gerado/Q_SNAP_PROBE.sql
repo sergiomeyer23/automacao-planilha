@@ -1,4 +1,4 @@
--- GERADO por scripts/build.js (10db84899dd53b95). NÃO EDITAR: altere sql/consultas, sql/fragmentos ou sql/macros.sql.
+-- GERADO por scripts/build.js (e413c22035786330). NÃO EDITAR: altere sql/consultas, sql/fragmentos ou sql/macros.sql.
 -- Consulta: Q_SNAP_PROBE
 -- Verifica a tabela OPCIONAL de snapshots (BI_F_SUGESTAO_COMPRA). Só diagnóstico: sem vínculo rastreável sugestão→OC, aderência e SLA continuam indisponíveis.
 -- Binds na ordem dos '?': CODEMP:I, DT_INI:S, DT_FIM:S

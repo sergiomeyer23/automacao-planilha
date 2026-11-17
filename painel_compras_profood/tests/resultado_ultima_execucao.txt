@@ -1,0 +1,345 @@
+
+> painel-compras-profood@2.0.0-nao-homologado test
+> node scripts/build.js && node --test tests/calc.test.js tests/build.test.js tests/cenarios.test.js tests/paridade.test.js tests/e2e.test.js
+
+Build e413c22035786330 OK: entrega/bi_oc_sankhya.jsp (274.8 KB), 8 consultas
+TAP version 13
+# Build e413c22035786330 OK: entrega/bi_oc_sankhya.jsp (274.8 KB), 8 consultas
+# Build e413c22035786330 OK: entrega/bi_oc_sankhya.jsp (274.8 KB), 8 consultas
+# Build e413c22035786330 OK: entrega/bi_oc_sankhya.jsp (274.8 KB), 8 consultas
+# Subtest: build é determinístico e produz o JSP sem edição manual
+ok 1 - build é determinístico e produz o JSP sem edição manual
+  ---
+  duration_ms: 106.312329
+  type: 'test'
+  ...
+# Subtest: JSP preserva diretivas, taglibs, snk:load e só as 3 expressões EL do Construtor
+ok 2 - JSP preserva diretivas, taglibs, snk:load e só as 3 expressões EL do Construtor
+  ---
+  duration_ms: 3.08247
+  type: 'test'
+  ...
+# Subtest: sem dependência externa: nenhum script/link/URL de rede no artefato
+ok 3 - sem dependência externa: nenhum script/link/URL de rede no artefato
+  ---
+  duration_ms: 2.400831
+  type: 'test'
+  ...
+# Subtest: todas as consultas: somente SELECT, binds conferidos, portáveis (Oracle 11g+)
+ok 4 - todas as consultas: somente SELECT, binds conferidos, portáveis (Oracle 11g+)
+  ---
+  duration_ms: 1.471899
+  type: 'test'
+  ...
+# Subtest: validador do build recusa escrita, ';', FETCH FIRST, bind sem parâmetro, alias de tabela com AS e '?' em literal
+ok 5 - validador do build recusa escrita, ';', FETCH FIRST, bind sem parâmetro, alias de tabela com AS e '?' em literal
+  ---
+  duration_ms: 1.462084
+  type: 'test'
+  ...
+# Subtest: uma única fonte por regra: fragmentos e macros compartilhados, sem bloco de 166 KB
+ok 6 - uma única fonte por regra: fragmentos e macros compartilhados, sem bloco de 166 KB
+  ---
+  duration_ms: 0.46864
+  type: 'test'
+  ...
+# Subtest: contrato interface × consultas: todo campo lido na tela existe na saída do cálculo
+ok 7 - contrato interface × consultas: todo campo lido na tela existe na saída do cálculo
+  ---
+  duration_ms: 131.227881
+  type: 'test'
+  ...
+# Subtest: validação estática sqlglot (dialeto Oracle): sintaxe e colunas contra o esquema demonstrado
+ok 8 - validação estática sqlglot (dialeto Oracle): sintaxe e colunas contra o esquema demonstrado
+  ---
+  duration_ms: 1471.124881
+  type: 'test'
+  ...
+# Subtest: 13. conversão: multiplica, divide, unidade padrão
+ok 9 - 13. conversão: multiplica, divide, unidade padrão
+  ---
+  duration_ms: 3.080419
+  type: 'test'
+  ...
+# Subtest: 14. conversão ambígua, inexistente, inválida ou inativa não converte
+ok 10 - 14. conversão ambígua, inexistente, inválida ou inativa não converte
+  ---
+  duration_ms: 0.435854
+  type: 'test'
+  ...
+# Subtest: 6.5 pesos da média ponderada somam 1 e são renormalizados no histórico curto
+ok 11 - 6.5 pesos da média ponderada somam 1 e são renormalizados no histórico curto
+  ---
+  duration_ms: 0.320208
+  type: 'test'
+  ...
+# Subtest: 5. demanda zero: sem divisão por zero; falta só quando a oferta não cobre o compromisso
+ok 12 - 5. demanda zero: sem divisão por zero; falta só quando a oferta não cobre o compromisso
+  ---
+  duration_ms: 0.157266
+  type: 'test'
+  ...
+# Subtest: 15. lote e múltiplo: atende os dois, nunca negativo, desligado não arredonda
+ok 13 - 15. lote e múltiplo: atende os dois, nunca negativo, desligado não arredonda
+  ---
+  duration_ms: 0.286433
+  type: 'test'
+  ...
+# Subtest: 18. política PRG/JIT: sem classificador validado, nada é classificado; pedido misto por item
+ok 14 - 18. política PRG/JIT: sem classificador validado, nada é classificado; pedido misto por item
+  ---
+  duration_ms: 0.177919
+  type: 'test'
+  ...
+# Subtest: 19. classificação de erro: só ORA-00942 é objeto ausente; o resto não é mascarado
+ok 15 - 19. classificação de erro: só ORA-00942 é objeto ausente; o resto não é mascarado
+  ---
+  duration_ms: 0.394469
+  type: 'test'
+  ...
+# Subtest: 20. respostas fora de ordem: só a geração mais recente de cada área renderiza
+ok 16 - 20. respostas fora de ordem: só a geração mais recente de cada área renderiza
+  ---
+  duration_ms: 0.235528
+  type: 'test'
+  ...
+# Subtest: 20b. fila de execução limita consultas simultâneas
+ok 17 - 20b. fila de execução limita consultas simultâneas
+  ---
+  duration_ms: 0.441144
+  type: 'test'
+  ...
+# Subtest: 22. HTML: texto do banco é sempre escapado
+ok 18 - 22. HTML: texto do banco é sempre escapado
+  ---
+  duration_ms: 0.480439
+  type: 'test'
+  ...
+# Subtest: 22b. CSV pt-BR: ';', vírgula decimal, BOM, aspas e proteção contra fórmula
+ok 19 - 22b. CSV pt-BR: ';', vírgula decimal, BOM, aspas e proteção contra fórmula
+  ---
+  duration_ms: 0.408656
+  type: 'test'
+  ...
+# Subtest: 23. parâmetros: contrato de binds, lista fechada e faixas
+ok 20 - 23. parâmetros: contrato de binds, lista fechada e faixas
+  ---
+  duration_ms: 2.081273
+  type: 'test'
+  ...
+# Subtest: contrato do retorno do executeQuery: formatos aceitos e recusados
+ok 21 - contrato do retorno do executeQuery: formatos aceitos e recusados
+  ---
+  duration_ms: 0.872127
+  type: 'test'
+  ...
+# Subtest: datas: ADD_MONTHS com a regra de último dia do Oracle
+ok 22 - datas: ADD_MONTHS com a regra de último dia do Oracle
+  ---
+  duration_ms: 0.296535
+  type: 'test'
+  ...
+# Subtest: formatação pt-BR
+ok 23 - formatação pt-BR
+  ---
+  duration_ms: 0.266185
+  type: 'test'
+  ...
+# Subtest: SQL executável disponível para os cenários
+ok 24 - SQL executável disponível para os cenários
+  ---
+  duration_ms: 135.260463
+  type: 'test'
+  ...
+# Subtest: 1. consumo líquido: saídas − devoluções; status, cancelamento e limites de data com horário
+ok 25 - 1. consumo líquido: saídas − devoluções; status, cancelamento e limites de data com horário
+  ---
+  duration_ms: 656.70344
+  type: 'test'
+  ...
+# Subtest: 2. mês corrente parcial: fora por padrão; proporcional quando MES_PARCIAL = 1
+ok 26 - 2. mês corrente parcial: fora por padrão; proporcional quando MES_PARCIAL = 1
+  ---
+  duration_ms: 1282.040814
+  type: 'test'
+  ...
+# Subtest: 3. produto novo: divisor desde o 1º consumo e histórico insuficiente
+ok 27 - 3. produto novo: divisor desde o 1º consumo e histórico insuficiente
+  ---
+  duration_ms: 1189.216698
+  type: 'test'
+  ...
+# Subtest: 4. produto antigo: meses sem movimento contam como zero (divisor 12, não 1)
+ok 28 - 4. produto antigo: meses sem movimento contam como zero (divisor 12, não 1)
+  ---
+  duration_ms: 607.027288
+  type: 'test'
+  ...
+# Subtest: 5. demanda zero não divide por zero e não vira falta
+ok 29 - 5. demanda zero não divide por zero e não vira falta
+  ---
+  duration_ms: 731.421148
+  type: 'test'
+  ...
+# Subtest: 6. estoque negativo: P1, motivo próprio e valor estimado só com preço
+ok 30 - 6. estoque negativo: P1, motivo próprio e valor estimado só com preço
+  ---
+  duration_ms: 1183.717794
+  type: 'test'
+  ...
+# Subtest: 7. reserva e pedido: uma única fonte de compromisso, sem dupla subtração
+ok 31 - 7. reserva e pedido: uma única fonte de compromisso, sem dupla subtração
+  ---
+  duration_ms: 1691.528052
+  type: 'test'
+  ...
+# Subtest: 8. previsão e pedido firme: MAIOR evita dupla contagem; SOMA fica como cenário
+ok 32 - 8. previsão e pedido firme: MAIOR evita dupla contagem; SOMA fica como cenário
+  ---
+  duration_ms: 1714.957074
+  type: 'test'
+  ...
+# Subtest: 9. OC confirmada conta como contratada; não confirmada e liberação pendente não
+ok 33 - 9. OC confirmada conta como contratada; não confirmada e liberação pendente não
+  ---
+  duration_ms: 837.757254
+  type: 'test'
+  ...
+# Subtest: 10. OC atrasada/sem previsão não é pontual; falta antes do recebimento é detectada
+ok 34 - 10. OC atrasada/sem previsão não é pontual; falta antes do recebimento é detectada
+  ---
+  duration_ms: 881.998922
+  type: 'test'
+  ...
+# Subtest: 11. OC antiga ainda aberta continua visível e sinalizada
+ok 35 - 11. OC antiga ainda aberta continua visível e sinalizada
+  ---
+  duration_ms: 1483.41768
+  type: 'test'
+  ...
+# Subtest: 12. cotação que vira OC não é descontada duas vezes
+ok 36 - 12. cotação que vira OC não é descontada duas vezes
+  ---
+  duration_ms: 1662.241694
+  type: 'test'
+  ...
+# Subtest: 13. conversão por multiplicação e divisão
+ok 37 - 13. conversão por multiplicação e divisão
+  ---
+  duration_ms: 580.153188
+  type: 'test'
+  ...
+# Subtest: 14. conversão ambígua, inexistente ou inativa fica fora e é contada
+ok 38 - 14. conversão ambígua, inexistente ou inativa fica fora e é contada
+  ---
+  duration_ms: 1147.698091
+  type: 'test'
+  ...
+# Subtest: 15. lote mínimo e múltiplo atendidos juntos; nunca negativo; desligado por padrão
+ok 39 - 15. lote mínimo e múltiplo atendidos juntos; nunca negativo; desligado por padrão
+  ---
+  duration_ms: 1846.255459
+  type: 'test'
+  ...
+# Subtest: 16. preço: unidade incompatível = sem preço; normalizado pela conversão; TOP separada não mistura
+ok 40 - 16. preço: unidade incompatível = sem preço; normalizado pela conversão; TOP separada não mistura
+  ---
+  duration_ms: 1711.14452
+  type: 'test'
+  ...
+# Subtest: 17. recebimento por OS + produto compartilhado não vira vínculo comprovado
+ok 41 - 17. recebimento por OS + produto compartilhado não vira vínculo comprovado
+  ---
+  duration_ms: 762.539243
+  type: 'test'
+  ...
+# Subtest: 18. pedido misto PRG/JIT: nada é classificado sem regra validada
+ok 42 - 18. pedido misto PRG/JIT: nada é classificado sem regra validada
+  ---
+  duration_ms: 585.965756
+  type: 'test'
+  ...
+# Subtest: 19. tabelas opcionais ausentes: ORA-00942 nos dois motores; presentes: dados
+ok 43 - 19. tabelas opcionais ausentes: ORA-00942 nos dois motores; presentes: dados
+  ---
+  duration_ms: 1221.863118
+  type: 'test'
+  ...
+# Subtest: 21. limite de linhas: a página é truncada, os totais do resumo não
+ok 44 - 21. limite de linhas: a página é truncada, os totais do resumo não
+  ---
+  duration_ms: 2394.119276
+  type: 'test'
+  ...
+# Build e413c22035786330 OK: entrega/bi_oc_sankhya.jsp (274.8 KB), 8 consultas
+# Subtest: e2e
+    # Subtest: sem executeQuery a página bloqueia (não vira mockup)
+    ok 1 - sem executeQuery a página bloqueia (não vira mockup)
+      ---
+      duration_ms: 186.161588
+      type: 'test'
+      ...
+    # Subtest: modo real: carrega, totais iguais ao cálculo de referência, sem XSS
+    ok 2 - modo real: carrega, totais iguais ao cálculo de referência, sem XSS
+      ---
+      duration_ms: 1635.43282
+      type: 'test'
+      ...
+    # Subtest: respostas fora de ordem: só o último filtro é renderizado
+    ok 3 - respostas fora de ordem: só o último filtro é renderizado
+      ---
+      duration_ms: 5745.057524
+      type: 'test'
+      ...
+    # Subtest: detalhe por produto e drill-down de OC/consumo
+    ok 4 - detalhe por produto e drill-down de OC/consumo
+      ---
+      duration_ms: 1703.293696
+      type: 'test'
+      ...
+    # Subtest: exportação CSV: mesmos filtros, pt-BR e protegida contra fórmula
+    ok 5 - exportação CSV: mesmos filtros, pt-BR e protegida contra fórmula
+      ---
+      duration_ms: 1846.995333
+      type: 'test'
+      ...
+    # Subtest: parâmetros e qualidade: tabela opcional ausente é informada, não vira erro genérico
+    ok 6 - parâmetros e qualidade: tabela opcional ausente é informada, não vira erro genérico
+      ---
+      duration_ms: 1846.529224
+      type: 'test'
+      ...
+    # Subtest: modo demonstração é identificado e não usa executeQuery
+    ok 7 - modo demonstração é identificado e não usa executeQuery
+      ---
+      duration_ms: 1060.026872
+      type: 'test'
+      ...
+    # Subtest: erro de coluna não é mascarado como tabela ausente
+    ok 8 - erro de coluna não é mascarado como tabela ausente
+      ---
+      duration_ms: 450.214111
+      type: 'test'
+      ...
+    1..8
+ok 45 - e2e
+  ---
+  duration_ms: 27573.557193
+  type: 'test'
+  ...
+# \# paridade: 287 execuções comparadas, 63501 linhas, 0 divergências; 9 diferença(s) de 1 unidade na última casa (fronteira DOUBLE x NUMBER): 1/9059.VLR_NEC_NAO_SOLIC 2039.92 x 2039.93 | 1/9059.VLR_NEC_NAO_SOLIC 2039.92 x 2039.93 | 1/9059.VLR_NEC_NAO_SOLIC 2039.92 x 2039.93 | 1/9059.VLR_NEC_NAO_SOLIC 2039.92 x 2039.93 | 1/9059.VLR_NEC_NAO_SOLIC 2039.92 x 2039.93
+# Subtest: 24. paridade SQL gerado × motor JS em todas as consultas
+ok 46 - 24. paridade SQL gerado × motor JS em todas as consultas
+  ---
+  duration_ms: 68401.202559
+  type: 'test'
+  ...
+1..46
+# tests 54
+# suites 0
+# pass 54
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 70761.428358

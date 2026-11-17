@@ -39,12 +39,20 @@ function normalizar(v) {
   if (typeof v === "string" && /^\d{4}-\d{2}-\d{2}T00:00:00$/.test(v)) return v.slice(0, 10);
   return v;
 }
-function iguais(a, b, tol) {
+/* Fronteira de arredondamento: o DuckDB calcula em DOUBLE e o Oracle em NUMBER decimal; um valor como
+   x,xx5 pode arredondar para lados diferentes. Aceita-se no máximo 1 unidade na última casa exibida,
+   e cada ocorrência é contada em `fronteiras` para aparecer no relatório. */
+const fronteiras = [];
+function casas(v) { const m = /\.(\d+)$/.exec(String(v)); return m ? m[1].length : 0; }
+function iguais(a, b, tol, rotulo) {
   a = normalizar(a); b = normalizar(b);
   if (a === null || b === null) return a === b;
   if (typeof a === "number" || typeof b === "number") {
-    const x = Number(a), y = Number(b);
-    return Math.abs(x - y) <= (tol || 1e-6) * Math.max(1, Math.abs(x), Math.abs(y));
+    const x = Number(a), y = Number(b), d = Math.abs(x - y);
+    if (d <= (tol || 1e-6) * Math.max(1, Math.abs(x), Math.abs(y))) return true;
+    const passo = Math.pow(10, -Math.max(casas(a), casas(b)));
+    if (passo < 1 && d <= passo * 1.000001) { fronteiras.push((rotulo || "") + " " + a + " x " + b); return true; }
+    return false;
   }
   return String(a) === String(b);
 }
@@ -61,9 +69,34 @@ function comparar(sql, js, chaveFn, tol) {
     for (const c of cols) {
       if (!(c in l)) { dif.push(k + "." + c + " só no JS"); continue; }
       if (!(c in o)) { dif.push(k + "." + c + " só no SQL"); continue; }
-      if (!iguais(l[c], o[c], tol)) dif.push(k + "." + c + ": SQL=" + JSON.stringify(l[c]) + " JS=" + JSON.stringify(o[c]));
+      if (!iguais(l[c], o[c], tol, k + "." + c)) dif.push(k + "." + c + ": SQL=" + JSON.stringify(l[c]) + " JS=" + JSON.stringify(o[c]));
     }
   }
   return dif;
 }
-module.exports = { CONFIG, valoresPadrao, binds, porNome, comparar, iguais, RAIZ };
+module.exports = { CONFIG, valoresPadrao, binds, porNome, comparar, iguais, fronteiras, RAIZ };
+
+/* Executa a mesma consulta no motor JS e no SQL gerado (DuckDB, se disponível). */
+const Motor = require("../../src/motor.js");
+const S = require("./sql_runner.js");
+const SYSDATE = "2026-11-17 10:30:00";
+function configCom(ajuste) {
+  const c = JSON.parse(JSON.stringify(CONFIG));
+  if (ajuste) ajuste(c);
+  return c;
+}
+function rodarAmbos(banco, id, valores, opcoes) {
+  opcoes = opcoes || {};
+  const config = opcoes.config || CONFIG;
+  const Q = S.consultas(opcoes.ajustePainel, opcoes.nomeConfig);
+  const b = binds(Q[id], valoresPadrao(valores));
+  let js, erroJs = null;
+  try { js = Motor.executar(id, porNome(Q[id], b), banco, { config, sysdate: opcoes.sysdate || SYSDATE }); } catch (e) { erroJs = e.message; }
+  let sql = null, erroSql = null, disponivel = false;
+  const r = S.rodar(banco, [{ id, params: b, sysdate: opcoes.sysdate || SYSDATE }], Q);
+  if (r) { disponivel = true; if (r[0].ok) sql = r[0].linhas; else erroSql = r[0].erro; }
+  return { js, erroJs, sql, erroSql, sqlDisponivel: disponivel };
+}
+module.exports.configCom = configCom;
+module.exports.rodarAmbos = rodarAmbos;
+module.exports.SYSDATE = SYSDATE;

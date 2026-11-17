@@ -1,0 +1,3 @@
+# Só para os testes de SQL (simulação em DuckDB e validação estática). Não é usado pelo painel.
+duckdb>=1.1
+sqlglot>=25

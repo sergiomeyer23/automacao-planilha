@@ -1,4 +1,4 @@
--- GERADO por scripts/build.js (10db84899dd53b95). NÃO EDITAR: altere sql/consultas, sql/fragmentos ou sql/macros.sql.
+-- GERADO por scripts/build.js (e413c22035786330). NÃO EDITAR: altere sql/consultas, sql/fragmentos ou sql/macros.sql.
 -- Consulta: Q_OC_LISTA
 -- Itens de OC com saldo aberto (sem corte de data), com situação, prazo e qualidade do vínculo. CODPROD_FILTRO > 0 = detalhe de um produto. Lista limitada; totais por janela analítica.
 -- Binds na ordem dos '?': CODEMP:I, DT_INI:S, DT_FIM:S, TOLERANCIA_ATRASO_DIAS:I, OC_ANTIGA_MESES:I, LIMITE_OC:I, FILTRO_OC:S, CODPROD_FILTRO:I

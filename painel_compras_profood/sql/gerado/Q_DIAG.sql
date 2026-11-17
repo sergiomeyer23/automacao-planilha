@@ -1,4 +1,4 @@
--- GERADO por scripts/build.js (10db84899dd53b95). NÃO EDITAR: altere sql/consultas, sql/fragmentos ou sql/macros.sql.
+-- GERADO por scripts/build.js (e413c22035786330). NÃO EDITAR: altere sql/consultas, sql/fragmentos ou sql/macros.sql.
 -- Consulta: Q_DIAG
 -- Teste do executeQuery: um inteiro e uma data vinculados, sem tabela do ERP.
 -- Binds na ordem dos '?': DIAG_NUM:I, DT_FIM:S

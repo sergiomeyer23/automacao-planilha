@@ -1,4 +1,4 @@
--- GERADO por scripts/build.js (10db84899dd53b95). NÃO EDITAR: altere sql/consultas, sql/fragmentos ou sql/macros.sql.
+-- GERADO por scripts/build.js (e413c22035786330). NÃO EDITAR: altere sql/consultas, sql/fragmentos ou sql/macros.sql.
 -- Consulta: Q_CONSUMO
 -- Matriz mensal de consumo líquido + médias, pelo MESMO bloco de consumo da fila. Seleção dos produtos por valor faturado líquido (VLRTOT) das saídas de consumo na janela: serve só para escolher os mais relevantes; não é custo nem é usado no cálculo.
 -- Binds na ordem dos '?': CODEMP:I, DIAS_MES:I, MESES_MEDIA:I, MES_PARCIAL:I, MEDIA_MODO:I, MIN_MESES_HIST:I, LEADTIME_DEFAULT:I, COBERTURA_ALVO_A:I, COBERTURA_ALVO_B:I, COBERTURA_ALVO_C:I, COBERTURA_SEM_CURVA:I, POLITICA_SEGURANCA:I, SEGURANCA_PCT_LT:I, MARGEM_ATENCAO_DIAS:I, COBERTURA_MAX_DIAS:I, FONTE_COMPROMISSO:I, DESCONTA_BLOQUEADO:I, REGRA_PREVISAO_FIRME:I, LOTE_MULTIPLO:I, ABC_CALCULADA:I, ABC_LIMITE_A:I, ABC_LIMITE_B:I, OC_ANTIGA_MESES:I, TOPN_CONSUMO:I, CODPROD_FILTRO:I
