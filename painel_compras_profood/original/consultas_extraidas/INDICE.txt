@@ -1,0 +1,13 @@
+Q_DIAG	114 caracteres	2 parâmetros
+Q_PARAMS	46 caracteres	0 parâmetros
+Q_EXEC	24299 caracteres	13 parâmetros
+Q_TOP15	23479 caracteres	13 parâmetros
+Q_FILA	24563 caracteres	14 parâmetros
+Q_NAO_COBRE	24243 caracteres	14 parâmetros
+Q_OC_KPIS	8632 caracteres	3 parâmetros
+Q_FUNIL	7413 caracteres	3 parâmetros
+Q_AGING	7642 caracteres	1 parâmetros
+Q_ATRASO	9141 caracteres	2 parâmetros
+Q_SNAP_PROBE	457 caracteres	3 parâmetros
+Q_ADERENCIA	8048 caracteres	4 parâmetros
+Q_CONSUMO	24218 caracteres	14 parâmetros

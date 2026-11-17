@@ -1,0 +1,63 @@
+{
+  "versao": "2.0.0-nao-homologado",
+  "titulo": "Acompanhamento de Abertura de OC",
+  "observacao": "Mapeamentos herdados do painel original. NENHUM foi validado pela área de negócio. Alterar aqui e rodar o build; nunca editar entrega/ à mão.",
+  "papeisTop": {
+    "CONSUMO": {
+      "tops": [1131, 1118, 1117, 1729, 1130, 1727, 1724, 1730, 1781, 1782, 1738],
+      "origem": "painel original",
+      "validado": false
+    },
+    "DEVOLUCAO": {
+      "tops": [1200, 1201, 1211, 1206],
+      "origem": "painel original",
+      "validado": false
+    },
+    "PERDA": {
+      "tops": [],
+      "origem": "nenhuma TOP mapeada no original; perdas NÃO entram no consumo até alguém mapear",
+      "validado": false
+    },
+    "EMPENHO": {
+      "tops": [1000, 1005, 1008, 1002, 1009, 1001, 1728, 1010],
+      "origem": "painel original (pedidos/empenhos pendentes usados como compromisso)",
+      "validado": false
+    },
+    "ORDEM_COMPRA": {
+      "tops": [99, 100, 101, 108, 1741, 1742],
+      "origem": "painel original",
+      "validado": false
+    },
+    "COTACAO": {
+      "tops": [],
+      "origem": "nenhuma fonte de cotação mapeada; 'necessidade em negociação' fica como NÃO DISPONÍVEL",
+      "validado": false
+    },
+    "ENTRADA_POR_OS": {
+      "tops": [259, 200],
+      "origem": "painel original (fallback de recebimento por OS + produto; vínculo apenas inferido)",
+      "validado": false
+    }
+  },
+  "topsPrecoSeparado": {
+    "tops": [1741],
+    "motivo": "Não misturar TOP 1741 com o preço de referência de revenda sem regra validada. A quantidade pendente continua contando como OC (como no original), mas o preço vem separado."
+  },
+  "locaisExcluidos": {
+    "locais": [1030000, 2030000],
+    "origem": "painel original; não é regra universal, confirmar com Logística"
+  },
+  "limites": {
+    "LIMITE_FILA": 1000,
+    "LIMITE_OC": 300,
+    "TOPN_CONSUMO": 100
+  },
+  "consultaTimeoutSegundos": 180,
+  "consultasSimultaneas": 2,
+  "codigoAntigo": {
+    "habilitado": false,
+    "coluna": "AD_CODPRODANTIGO",
+    "observacao": "Campo citado como existente no ambiente, mas a tabela e o significado não foram confirmados. Quando habilitado, apenas EXIBE o código antigo (TGFPRO); nunca consolida histórico."
+  },
+  "tamanhoMaximoAvisoKB": 400
+}

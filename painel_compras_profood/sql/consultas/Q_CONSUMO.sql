@@ -1,0 +1,51 @@
+-- @consulta Q_CONSUMO
+-- @descricao Matriz mensal de consumo líquido + médias, pelo MESMO bloco de consumo da fila.
+--            Seleção dos produtos por valor faturado líquido (VLRTOT) das saídas de consumo na janela:
+--            serve só para escolher os mais relevantes; não é custo nem é usado no cálculo.
+-- @params CALCULO TOPN_CONSUMO CODPROD_FILTRO
+WITH {{PRM}},
+{{TOPS}},
+{{FRAGMENTOS calendario janela_consumo unidades consumo produtos}},
+sel AS (
+    SELECT M.CODEMP, M.CODPROD,
+           ROW_NUMBER() OVER (ORDER BY M.VLR_FAT_JANELA DESC, M.CODEMP, M.CODPROD) AS RK
+    FROM med3 M
+    JOIN prod PD ON PD.CODPROD = M.CODPROD
+    CROSS JOIN prm PR
+    WHERE PR.CODPROD_FILTRO = 0 OR M.CODPROD = PR.CODPROD_FILTRO
+)
+SELECT S.RK, M.CODEMP, M.CODPROD, PD.DESCRPROD, PD.UNIDADE,
+       M.ORIGEM_SERIE,
+       TO_CHAR(M.DT_PRIM_CONSUMO, 'YYYY-MM-DD') AS DT_PRIM_CONSUMO,
+       M.N_MESES,
+       ROUND(M.FRAC_USADA, 4) AS FRAC_USADA,
+       ROUND(M.QTD_JANELA, 3) AS QTD_JANELA,
+       ROUND(M.QTD_PARCIAL, 3) AS QTD_PARCIAL,
+       ROUND(M.MEDIA_SIMPLES, 3) AS MEDIA_SIMPLES,
+       ROUND(M.MEDIA_PONDERADA, 3) AS MEDIA_PONDERADA,
+       ROUND(GREATEST(NVL(M.MEDIA_CALC, 0), 0), 3) AS MEDIA_USADA,
+       ROUND(M.MEDIA_3M, 3) AS MEDIA_3M,
+       CASE WHEN M.MEDIA_CALC > 0 AND M.MEDIA_3M IS NOT NULL
+            THEN ROUND(M.MEDIA_3M / M.MEDIA_CALC - 1, 4) END AS DESVIO,
+       M.FL_HIST_INSUF,
+       M.N_CONS_NAO_CONC,
+       ROUND(M.VLR_FAT_JANELA, 2) AS VLR_FAT_JANELA,
+       CM.IDX_MES,
+       ROUND(CM.QTD, 3) AS QTD,
+       ROUND(CM.QTD_SAIDA, 3) AS QTD_SAIDA,
+       ROUND(CM.QTD_DEVOL, 3) AS QTD_DEVOL,
+       ROUND(CM.QTD_PERDA, 3) AS QTD_PERDA,
+       CM.N_NAO_CONC,
+       JC.IDX_M0,
+       JC.N AS MESES_JANELA,
+       TO_CHAR(JC.INI, 'YYYY-MM-DD') AS JANELA_INI,
+       TO_CHAR(JC.DT_BASE, 'YYYY-MM-DD') AS DT_BASE
+FROM sel S
+JOIN med3 M ON M.CODEMP = S.CODEMP AND M.CODPROD = S.CODPROD
+JOIN prod PD ON PD.CODPROD = S.CODPROD
+CROSS JOIN janc JC
+CROSS JOIN prm PR
+LEFT JOIN cons_mes CM ON CM.CODEMP = S.CODEMP AND CM.CODPROD = S.CODPROD
+                     AND CM.IDX_MES >= JC.IDX_M0 - JC.N AND CM.IDX_MES <= JC.IDX_M0
+WHERE S.RK <= PR.TOPN_CONSUMO
+ORDER BY S.RK, CM.IDX_MES NULLS FIRST
