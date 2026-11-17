@@ -1,0 +1,58 @@
+{
+  "versao": "2.0.0-nao-homologado",
+  "hash": "10db84899dd53b95",
+  "arquivo": "entrega/bi_oc_sankhya.jsp",
+  "tamanhoKB": 274.8,
+  "avisoTamanho": null,
+  "sha256": "a53c442b760a7f77f6c7c7bde8cb1a44d981815d8b179f19057bcb53d8869626",
+  "consultas": [
+    {
+      "id": "Q_CARTEIRA",
+      "parametros": 5,
+      "caracteres": 12184,
+      "sha256": "1474bd015c96b6df"
+    },
+    {
+      "id": "Q_CONSUMO",
+      "parametros": 25,
+      "caracteres": 11836,
+      "sha256": "de51c6de52939c37"
+    },
+    {
+      "id": "Q_DIAG",
+      "parametros": 2,
+      "caracteres": 211,
+      "sha256": "46c50b888cc76690"
+    },
+    {
+      "id": "Q_OC_LISTA",
+      "parametros": 8,
+      "caracteres": 10976,
+      "sha256": "977d27d0ba838161"
+    },
+    {
+      "id": "Q_PARAMS",
+      "parametros": 0,
+      "caracteres": 46,
+      "sha256": "fa6b973c86716666"
+    },
+    {
+      "id": "Q_PLANO",
+      "parametros": 25,
+      "caracteres": 32693,
+      "sha256": "d3a8b8e2d1a98e00"
+    },
+    {
+      "id": "Q_RESUMO",
+      "parametros": 23,
+      "caracteres": 31182,
+      "sha256": "fde1b2a167f1b300"
+    },
+    {
+      "id": "Q_SNAP_PROBE",
+      "parametros": 3,
+      "caracteres": 419,
+      "sha256": "36c17d6155197505"
+    }
+  ]
+}

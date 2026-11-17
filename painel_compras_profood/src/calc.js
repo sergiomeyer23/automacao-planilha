@@ -19,8 +19,8 @@ var Calc = (function () {
     return (x < 0 ? -r : r) / f;
   }
   function esc(s) {
-    return String(s === null || s === undefined ? "" : s).replace(/[&<>"'`]/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;", "`": "&#96;" }[c];
+    return String(s === null || s === undefined ? "" : s).replace(/[&<>"'\x60]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;", "\x60": "&#96;" }[c];
     });
   }
   function pad2(n) { return (n < 10 ? "0" : "") + n; }
